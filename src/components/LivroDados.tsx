@@ -22,15 +22,15 @@ const LivroDados: React.FC = () => {
     event.preventDefault();
 
     const novoLivro = new Livro(
-      0, // O código será atribuído pelo método de inclusão
+      0, 
       codEditora,
       titulo,
       resumo,
-      autores.split("\n") // Divide os autores por linha
+      autores.split("\n") 
     );
 
     controleLivro.incluir(novoLivro);
-    // Limpa os campos do formulário
+
     setTitulo("");
     setResumo("");
     setAutores("");
@@ -39,7 +39,7 @@ const LivroDados: React.FC = () => {
 
   return (
     <main className="container mt-4">
-      <h2>Cadastro de Livro</h2>
+      <h2 className="mb-4">Cadastro de Livro</h2>
       <form onSubmit={incluir}>
         <div className="mb-3">
           <label htmlFor="titulo" className="form-label">Título</label>
@@ -77,6 +77,7 @@ const LivroDados: React.FC = () => {
           <select
             className="form-select"
             id="editora"
+            aria-label="Selecionar editora"
             value={codEditora}
             onChange={(e) => setCodEditora(Number(e.target.value))}
             required

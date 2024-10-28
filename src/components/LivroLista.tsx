@@ -1,5 +1,3 @@
-// src/components/LivroLista.tsx
-
 import React, { useEffect, useState } from "react";
 import { ControleLivros } from "../controle/ControleLivros";
 import { ControleEditora } from "../controle/ControleEditora";
@@ -24,9 +22,9 @@ const LivroLista: React.FC = () => {
 
   return (
     <main className="container mt-4">
-      <h2>Lista de Livros</h2>
-      <table className="table table-striped">
-        <thead>
+      <h2 className="mb-4">Lista de Livros</h2>
+      <table className="table table-striped table-bordered">
+        <thead className="table-dark">
           <tr>
             <th>Título</th>
             <th>Editora</th>
@@ -42,8 +40,8 @@ const LivroLista: React.FC = () => {
               <td>{controleEditora.getNomeEditora(livro.codEditora)}</td>
               <td>{livro.resumo}</td>
               <td>
-                <ul>
-                  {livro.autores.map((autor: string, index: number) => (
+                <ul className="list-unstyled">
+                  {livro.autores.map((autor, index) => (
                     <li key={index}>{autor}</li>
                   ))}
                 </ul>
